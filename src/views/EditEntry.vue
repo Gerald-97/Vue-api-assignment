@@ -36,7 +36,7 @@ export default {
             this.employee = response.data
         })
         .catch(error => {
-            console.log(error.response)
+            alert(error.response)
         })
     },
     methods: {

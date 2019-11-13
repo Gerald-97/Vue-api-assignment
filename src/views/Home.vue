@@ -45,11 +45,11 @@ export default {
     refreshPage(){
       this.$http.get('http://dummy.restapiexample.com/api/v1/employees')
       .then(response => {
-        console.log(response)
+        alert(response)
         this.employeeList = response.data
       })
       .catch(error => {
-        console.log(error.response)
+        alert(error.response)
       }) 
     },
     addProfile(){

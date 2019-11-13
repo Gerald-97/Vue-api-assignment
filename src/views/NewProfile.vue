@@ -40,7 +40,7 @@ export default {
                     employee_age: ''
                 }
                 alert('New Profile created!')
-                console.log(response)
+                alert(response)
             })
             .catch(error => {
                 alert(error.response)

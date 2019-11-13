@@ -21,11 +21,11 @@ export default {
             this.$http.delete(`http://dummy.restapiexample.com/api/v1/delete/${this.employee.id}`)
             .then(response => {
                 alert('Deleted!')
-                console.log(response)
+                alert(response)
                 this.$emit('reloadPage')
             })
             .catch(error => {
-                console.log(error.response)
+                alert(error.response)
             }) 
         },
         editRow(){
