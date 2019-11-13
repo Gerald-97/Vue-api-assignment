@@ -29,7 +29,7 @@ export default {
             }) 
         },
         editRow(){
-            this.$router.push({ name: 'edit-profile', params: {id: this.employee.employee_id}})
+            this.$router.push({ name: 'edit-profile', params: {id: this.employee.id}})
         }
     }
 }

@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-    name:'EditForm',
+    name:'edit-profile',
     data(){
         return{
             employee: {
@@ -31,9 +31,13 @@ export default {
         }
     },
     mounted(){
-        this.$http.get(`http://dummy.restapiexample.com/api/v1/employee/${this.$route.params.id}`)
+        this.$http
+        .get(
+            `http://dummy.restapiexample.com/api/v1/employee/${this.$route.params.id}`
+        )
         .then(response => {
             this.employee = response.data
+            console.log(response)
         })
         .catch(error => {
             alert(error.response)
@@ -41,14 +45,18 @@ export default {
     },
     methods: {
         updateProfile(){
-            this.$http.post('http://dummy.restapiexample.com/api/v1/update', this.employee)
+            this.$http
+            .put(
+                `http://dummy.restapiexample.com/api/v1/update/${this.$route.params.id}`, 
+                this.employee
+            )
             .then(response =>{
+                alert(`Updated Profile with id ${response.data.id}`)
                 this.employee = {
                     employee_name: '',
                     employee_salary: '',
                     employee_age: ''
                 }
-                alert(`Updated Profile with id ${response.data.id}`)
             })
             .catch(error => {
                 alert(error.response)
